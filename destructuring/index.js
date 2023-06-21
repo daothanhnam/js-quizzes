@@ -5,6 +5,9 @@ const names = ["John", "Ken"];
 
 // Code dưới này
 
+const [, name] = names;
+console.log(name);
+
 // Bài tập 2: Cho object student1, hãy in ra 3 giá trị của 3 keys đầu tiên trong object sử dụng Rest Operator và Destructuring
 // Cùng lúc đó, in ra các cặp key-value còn lại sử dụng Destructuring (sử dụng một dòng console.log duy nhất)
 // Expected Output: [ 'Minh', 'Nam', 'Viet' ] FPTU HN { studentName: 'Khoi', isHandsome: 'kinda', age: 20 }
@@ -19,13 +22,20 @@ const student = {
 };
 
 // Code dưới này
+const { studentName, isHandsome, age, ...rest } = student;
+console.log(rest);
+console.log([studentName, isHandsome, age]);
 
 // Bài tập 3: Sử dụng chính object student ở bài 2, hãy in ra từng phần tử trong mảng friends sử dụng Destructuring
 // Expected Output: Minh Nam Viet
 console.log("Kết quả bài tập 3:");
 
 // Code dưới này
+const { friends } = student;
 
+friends.forEach(function (friend) {
+  console.log(friend);
+});
 // Bài tập 4:
 // Cho sẵn một function dùng để in ra thông tin của student
 // Hãy tự khởi tạo một object myStudent có 5 cặp key-value (name, age, school và 2 cái còn lại có thể tự viết ra nhé)
@@ -35,16 +45,30 @@ console.log("Kết quả bài tập 3:");
 console.log("Kết quả bài tập 4:");
 const myStudent = {
   // Tự khởi tạo object myStudent ở đây
-  name: "Khoi",
-  age: 20,
+  namee: "Nam",
+  agee: 20,
   school: "FPTU HN",
   mark: 8.0,
   isSophomore: true,
 };
 
+const { namee, agee, school, ...restt } = myStudent;
+
+console.log(`Name: ${namee}, Age: ${agee}, School: ${school}`);
+console.log(restt);
+
 // Cho sẵn một function như sau, tự điều chỉnh tham số (tham số bắt buộc phải là 1 Object):
+
+const myStudents = {
+  name: "Nam",
+  age: 20,
+  school: "FSoft",
+  mark: 100,
+  isSophomore: true,
+};
+
 const logStudentInfo = ({ name, age, school, ...rest }) => {
   console.log(name, age, school, rest.mark, rest.isSophomore);
 };
 
-logStudentInfo(myStudent);
+logStudentInfo(myStudents);
