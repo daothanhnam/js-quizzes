@@ -54,7 +54,7 @@ const myStudent = {
 
 const { namee, agee, school, ...restt } = myStudent;
 
-console.log(`Name: ${namee}, Age: ${agee}, School: ${school}`);
+console.log(`Name:${namee}, Age:${agee}, School:${school}`);
 console.log(restt);
 
 // Cho sẵn một function như sau, tự điều chỉnh tham số (tham số bắt buộc phải là 1 Object):
